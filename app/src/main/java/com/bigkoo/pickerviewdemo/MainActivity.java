@@ -36,13 +36,14 @@ public class MainActivity extends Activity {
         tvTime=(TextView) findViewById(R.id.tvTime);
         tvOptions=(TextView) findViewById(R.id.tvOptions);
         //时间选择器
-        pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
+        pvTime = new TimePickerView(this, TimePickerView.Type.ALL);
         //控制时间范围
 //        Calendar calendar = Calendar.getInstance();
 //        pvTime.setRange(calendar.get(Calendar.YEAR) - 20, calendar.get(Calendar.YEAR));//要在setTime 之前才有效果哦
         pvTime.setTime(new Date());
         pvTime.setCyclic(false);
         pvTime.setCancelable(true);
+        pvTime.setTitle("时间选择");
         //时间选择后回调
         pvTime.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
 

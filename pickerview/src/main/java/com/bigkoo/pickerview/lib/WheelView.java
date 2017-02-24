@@ -7,7 +7,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -63,7 +65,7 @@ public class WheelView extends View {
     int dividerColor;
 
     // 条目间距倍数
-    static final float lineSpacingMultiplier = 1.4F;
+    static final float lineSpacingMultiplier = 1.9F;
     boolean isLoop;
 
     // 第一条线Y坐标值
@@ -84,7 +86,7 @@ public class WheelView extends View {
     int change;
 
     // 显示几个条目
-    int itemsVisible = 11;
+    int itemsVisible = 13;
 
     int measuredHeight;
     int measuredWidth;
@@ -114,9 +116,9 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        textColorOut = getResources().getColor(R.color.pickerview_wheelview_textcolor_out);
-        textColorCenter = getResources().getColor(R.color.pickerview_wheelview_textcolor_center);
-        dividerColor = getResources().getColor(R.color.pickerview_wheelview_textcolor_divider);
+        textColorOut = ContextCompat.getColor(context,R.color.pickerview_wheelview_textcolor_out);
+        textColorCenter = ContextCompat.getColor(context,R.color.pickerview_wheelview_textcolor_center);
+        dividerColor = ContextCompat.getColor(context,R.color.pickerview_wheelview_textcolor_divider);
         //配合customTextSize使用，customTextSize为true才会发挥效果
         textSize = getResources().getDimensionPixelSize(R.dimen.pickerview_textsize);
         customTextSize = getResources().getBoolean(R.bool.pickerview_customTextSize);
@@ -127,6 +129,7 @@ public class WheelView extends View {
             textColorCenter = a.getColor(R.styleable.pickerview_pickerview_textColorCenter, textColorCenter);
             dividerColor = a.getColor(R.styleable.pickerview_pickerview_dividerColor, dividerColor);
             textSize = a.getDimensionPixelOffset(R.styleable.pickerview_pickerview_textSize, textSize);
+            a.recycle();
         }
         initLoopView(context);
     }
@@ -354,8 +357,10 @@ public class WheelView extends View {
         //单位的Label
         if (label != null) {
             int drawRightContentStart = measuredWidth - getTextWidth(paintCenterText, label);
+
             //靠右并留出空隙
-            canvas.drawText(label, drawRightContentStart - CENTERCONTENTOFFSET, centerY, paintCenterText);
+            canvas.drawText(label, drawRightContentStart - 2*CENTERCONTENTOFFSET, centerY, paintCenterText);
+
         }
         counter = 0;
         while (counter < itemsVisible) {

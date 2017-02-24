@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pickerview_timebtn_confirm_nor">#60CD3A</color>
-    <color name="pickerview_timebtn_confirm_pre">#39AF10</color>
-    <color name="pickerview_timebtn_cancel_nor">#bdbdbd</color>
-    <color name="pickerview_timebtn_cancel_pre">#8d8d8d</color>
-    <color name="pickerview_bg_topbar">#f5f5f5</color>
+    <color name="pickerview_timebtn_confirm_nor">#289fff</color>
+    <color name="pickerview_timebtn_confirm_pre">#289fff</color>
+    <color name="pickerview_timebtn_cancel_nor">#289fff</color>
+    <color name="pickerview_timebtn_cancel_pre">#289fff</color>
+    <color name="pickerview_bg_topbar">#ffffff</color>
     <color name="pickerview_topbar_title">#353535</color>
     <color name="pickerview_wheelview_textcolor_out">#a8a8a8</color>
     <color name="pickerview_wheelview_textcolor_center">#454545</color>
